@@ -14,6 +14,13 @@ import com.utils.ConfigReader;
 // Driver Lifecycle Only
 
 public class BaseTest {
+	
+	/*
+	 * If driver is protected:
+		✔ Child test classes can directly use it
+		✔ No getter needed
+		✔ Clean test code
+	 */
 
 	protected WebDriver driver;
 	protected Properties prop;
@@ -43,3 +50,12 @@ public class BaseTest {
 		}
 	}
 }
+
+/*Protected is used in BaseTest so that WebDriver and configuration properties are accessible to test classes through inheritance, while still maintaining encapsulation and preventing global access.
+BaseTest → framework core
+LoginTest, HomeTest, etc. → subclasses
+
+Driver must be:
+✔ Shared with tests
+✔ Not exposed globally
+*/
